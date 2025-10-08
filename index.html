@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio - Professional Web Developer</title>
+    <!-- Google Fonts: Poppins for modern, clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons (CDN for simplicity; can be removed if preferring pure CSS icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS file link (to be generated next) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fixed Responsive Navbar -->
+    <!-- This navbar is fixed at the top, with smooth scrolling links to sections. On mobile, it can collapse into a hamburger menu (JS will handle toggle). -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Portfolio</a> <!-- Logo or site name; editable -->
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#video-portfolio" class="nav-link">Video Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#image-portfolio" class="nav-link">Image Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <!-- Hamburger button for mobile; hidden on desktop -->
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Full-screen hero with profile photo (replace src with your square photo, e.g., 300x300px), name, title, intro, and resume button. Background for animated gradient/particles (CSS/JS). -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div> <!-- Placeholder for subtle animated gradient or particle background -->
+        <div class="hero-content">
+            <!-- Profile Photo: Replace src with your image path (keep square aspect ratio) -->
+            <img src="D:\Desktop\portfolio\profile picture.png" alt="Your Profile Photo" class="profile-photo">
+            <!-- Name: Editable -->
+            <h1 class="hero-name">Your Full Name</h1>
+            <!-- Title: Editable -->
+            <p class="hero-title">Professional Web Developer & Designer</p>
+            <!-- Short Introduction: Editable -->
+            <p class="hero-intro">Passionate about creating modern, responsive web experiences with clean code and elegant designs. Let's build something amazing together.</p>
+            <!-- Download Resume Button: Replace href with your resume PDF path -->
+            <a href="assets/resume.pdf" download class="btn btn-primary" target="_blank">Download Resume</a>
+        </div>
+    </section>
+
+    <!-- Video Portfolio Section -->
+    <!-- Grid of embedded videos (e.g., YouTube/Vimeo iframes). Replace src with your video embeds. Use responsive iframes. -->
+    <section id="video-portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Video Portfolio</h2>
+            <p class="section-subtitle">Watch my project demos and walkthroughs.</p>
+            <div class="video-grid">
+                <!-- Video 1: Replace src with embed URL (e.g., YouTube: https://www.youtube.com/embed/VIDEO_ID) -->
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/your-video-id-1" title="Project Video 1" frameborder="0" allowfullscreen></iframe>
+                    <h3>Project Video 1</h3> <!-- Editable title -->
+                    <p>Brief description of the video content. <!-- Editable --></p>
+                </div>
+                <!-- Video 2: Add more as needed; duplicate structure -->
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/your-video-id-2" title="Project Video 2" frameborder="0" allowfullscreen></iframe>
+                    <h3>Project Video 2</h3>
+                    <p>Brief description of the video content.</p>
+                </div>
+                <!-- Add more video items here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Portfolio/Gallery Section -->
+    <!-- Responsive gallery grid for images/screenshots. Replace src with your image paths (e.g., project screenshots). Lightbox or modal can be added via JS. -->
+    <section id="image-portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Image Portfolio</h2>
+            <p class="section-subtitle">Screenshots and visuals from my personal projects.</p>
+            <div class="gallery-grid">
+                <!-- Image 1: Replace src and alt; add data attributes for JS lightbox if needed -->
+                <div class="gallery-item">
+                    <img src="assets/project-screenshot-1.jpg" alt="Project Screenshot 1" loading="lazy">
+                    <div class="overlay">
+                        <p>Project Screenshot 1 <!-- Editable caption --></p>
+                    </div>
+                </div>
+                <!-- Image 2: Duplicate for more -->
+                <div class="gallery-item">
+                    <img src="assets/project-screenshot-2.jpg" alt="Project Screenshot 2" loading="lazy">
+                    <div class="overlay">
+                        <p>Project Screenshot 2</p>
+                    </div>
+                </div>
+                <!-- Image 3 -->
+                <div class="gallery-item">
+                    <img src="assets/project-screenshot-3.jpg" alt="Project Screenshot 3" loading="lazy">
+                    <div class="overlay">
+                        <p>Project Screenshot 3</p>
+                    </div>
+                </div>
+                <!-- Add more gallery items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <!-- Grid of project cards using glassmorphism (CSS). Each card has title, description, and links. Easily editable. -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A selection of my recent work with descriptions and links.</p>
+            <div class="projects-grid">
+                <!-- Project 1 Card -->
+                <article class="project-card glassmorphism">
+                    <h3>Project Title 1</h3> <!-- Editable -->
+                    <p>Short description of the project, including technologies used (e.g., HTML, CSS, JS). This project showcases responsive design and smooth animations.</p> <!-- Editable -->
+                    <div class="project-links">
+                        <!-- Replace hrefs with your links (e.g., live demo, GitHub) -->
+                        <a href="https://github.com/yourusername/project1" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://yourproject1.com" target="_blank" class="btn btn-secondary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </article>
+                <!-- Project 2 Card: Duplicate structure -->
+                <article class="project-card glassmorphism">
+                    <h3>Project Title 2</h3>
+                    <p>Short description of the project...</p>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/project2" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://yourproject2.com" target="_blank" class="btn btn-secondary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </article>
+                <!-- Project 3 Card -->
+                <article class="project-card glassmorphism">
+                    <h3>Project Title 3</h3>
+                    <p>Short description of the project...</p>
+                    <div class="project-links">
+                        <a href="https://github.com/yourusername/project3" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://yourproject3.com" target="_blank" class="btn btn-secondary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </article>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <!-- Social icons linking to your profiles. Replace hrefs with your actual links. -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-subtitle">Get in touch or connect on social media.</p>
+            <div class="social-links">
+                <!-- Facebook: Replace href -->
+                <a href="https://facebook.com/yourusername" target="_blank" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <!-- X (Twitter) -->
+                <a href="https://twitter.com/yourusername" target="_blank" class="social-icon" aria-label="X (Twitter)">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com/yourusername" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- Add more icons if needed -->
+            </div>
+            <!-- Optional: Add email or form here if desired -->
+            <p class="contact-email">Email: your.email@example.com <!-- Editable --></p>
+        </div>
+    </section>
+
+    <!-- JavaScript file link (to be generated later) -->
+    <script src="script.js"></script>
+</body>
+
+</html>
