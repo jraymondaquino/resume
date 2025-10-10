@@ -331,7 +331,7 @@ html {
 .gallery-item img {
     width: 100%;
     height: 250px;
-    object-fit: inherit;
+    object-fit: cover;
     display: block;
     transition: var(--transition);
 }
@@ -554,4 +554,5 @@ html {
     transition: var(--transition);
 
 }
+
 
