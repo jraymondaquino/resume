@@ -179,6 +179,10 @@ html {
     z-index: -1;
 }
 
+.tools {
+    margin: 10px 10px 10px 10px;
+}
+
 @keyframes gradientShift {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.8; }
@@ -554,5 +558,6 @@ html {
     transition: var(--transition);
 
 }
+
 
 
