@@ -179,139 +179,7 @@ html {
     z-index: -1;
 }
 
-/* Tools Section Styles */
-#tools-section {
-    background-color: #000; /* Black theme background */
-    color: #fff; /* White text for contrast */
-    padding: 60px 0; /* Vertical spacing */
-}
 
-#tools-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center; /* Center align content */
-}
-
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #fff; /* White for black theme */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.section-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    color: #ccc; /* Light gray for subtitle */
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop for 3x3 layout */
-    gap: 30px; /* Space between items */
-    justify-items: center; /* Center items in grid */
-    max-width: 600px; /* Limit overall width for focus */
-    margin: 0 auto;
-}
-
-.tool-item {
-    position: relative;
-    width: 120px; /* Fixed width for uniform icons */
-    height: 120px; /* Fixed height to maintain square shape */
-    border-radius: 12px; /* Rounded corners for modern look */
-    overflow: hidden; /* Hide overflow for overlay */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth in black theme */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
-    cursor: pointer; /* Indicate interactivity */
-}
-
-.tool-item:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Deeper shadow on hover */
-}
-
-.tool-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Fit icon without distortion, centered */
-    display: block;
-    transition: opacity 0.3s ease; /* Fade effect on hover */
-}
-
-.tool-item:hover .tool-icon {
-    opacity: 0.8; /* Slightly fade icon on hover */
-}
-
-.tool-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay on hover */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Optional: Add centered text here if you want tool names visible on hover */
-    /* For example: font-size: 0.9rem; color: #fff; text-align: center; padding: 10px; */
-}
-
-.tool-item:hover .tool-overlay {
-    opacity: 1; /* Show overlay on hover */
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .tools-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-        gap: 25px;
-        max-width: 400px;
-    }
-    
-    .tool-item {
-        width: 100px;
-        height: 100px; /* Slightly smaller on medium screens */
-    }
-}
-
-@media (max-width: 768px) {
-    #tools-section {
-        padding: 40px 0; /* Reduce padding on mobile */
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .section-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .tools-grid {
-        grid-template-columns: 1fr; /* Single column on mobile */
-        gap: 20px;
-        max-width: 200px; /* Narrower on small screens */
-    }
-    
-    .tool-item {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-@media (max-width: 480px) {
-    .tool-item {
-        width: 80px;
-        height: 80px; /* Even smaller for very small screens */
-    }
-}
 
 @keyframes gradientShift {
     0%, 100% { opacity: 1; }
@@ -688,6 +556,7 @@ html {
     transition: var(--transition);
 
 }
+
 
 
 
