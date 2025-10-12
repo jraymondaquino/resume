@@ -252,51 +252,100 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Tools Section Lightbox Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Select the gallery item and create lightbox elements dynamically
-    const galleryItem = document.querySelector('#image-portfolio .gallery-item');
-    const img = galleryItem.querySelector('img.tools');
-    const overlay = galleryItem.querySelector('.overlay');
+    const toolItems = document.querySelectorAll('#tools-section .tool-item');
+    let lightbox = null; // Will be created dynamically
 
-    if (galleryItem && img) {
-        // Create lightbox modal elements
-        const lightbox = document.createElement('div');
-        lightbox.id = 'lightbox';
+    // Tool data: Name and description for each (index matches HTML order; customize as needed)
+    const toolData = [
+        { name: 'Notion', description: 'All-in-one workspace for notes, tasks, and databases.' },
+        { name: 'ChatGPT', description: 'AI-powered conversational assistant for content and ideas.' },
+        { name: 'Google Drive', description: 'Cloud storage and file sharing service.' },
+        { name: 'Gmail', description: 'Secure email platform with integrated productivity tools.' },
+        { name: 'Google Docs', description: 'Collaborative word processing application.' },
+        { name: 'Google Sheets', description: 'Online spreadsheet tool for data analysis.' },
+        { name: 'Adobe Illustrator', description: 'Vector graphics editor for illustrations and logos.' },
+        { name: 'Adobe Photoshop', description: 'Raster graphics editor for photo manipulation.' },
+        { name: 'n8n', description: 'Open-source workflow automation tool for integrations.' }
+    ];
+
+    // Function to create lightbox if it doesn't exist
+    function createLightbox() {
+        if (lightbox) return; // Already created
+
+        lightbox = document.createElement('div');
+        lightbox.id = 'tools-lightbox';
         lightbox.className = 'lightbox-modal';
         lightbox.innerHTML = `
             <div class="lightbox-content">
                 <span class="close-lightbox">&times;</span>
-                <img src="${img.src}" alt="${img.alt}" class="lightbox-img">
+                <div class="lightbox-tool-info">
+                    <img src="" alt="" class="lightbox-icon">
+                    <h3 class="tool-name"></h3>
+                    <p class="tool-description"></p>
+                </div>
             </div>
         `;
-
-        // Append lightbox to body
         document.body.appendChild(lightbox);
 
-        // Event listeners
-        img.addEventListener('click', function(e) {
-            e.preventDefault();
-            lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-
-        // Close lightbox
+        // Close event listeners
         const closeBtn = lightbox.querySelector('.close-lightbox');
         lightbox.addEventListener('click', function(e) {
             if (e.target === lightbox || e.target === closeBtn) {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restore scrolling
+                closeLightbox();
             }
         });
 
-        // Optional: Close on Escape key
+        // Escape key close
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            if (e.key === 'Escape' && lightbox && lightbox.style.display === 'flex') {
+                closeLightbox();
             }
         });
-
-        // Enhance overlay for better UX (e.g., show a pointer cursor)
-        overlay.style.cursor = 'pointer';
     }
+
+    function openLightbox(index) {
+        if (!lightbox) createLightbox();
+        
+        const tool = toolData[index];
+        const img = toolItems[index].querySelector('.tool-icon');
+        
+        lightbox.querySelector('.lightbox-icon').src = img.src;
+        lightbox.querySelector('.lightbox-icon').alt = img.alt;
+        lightbox.querySelector('.tool-name').textContent = tool.name;
+        lightbox.querySelector('.tool-description').textContent = tool.description;
+        
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeLightbox() {
+        if (lightbox) {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+    }
+
+    // Add click listeners to each tool item
+    toolItems.forEach((item, index) => {
+        const overlay = item.querySelector('.tool-overlay');
+        const icon = item.querySelector('.tool-icon');
+        
+        // Make overlay clickable for lightbox
+        if (overlay) {
+            overlay.style.cursor = 'pointer';
+            overlay.addEventListener('click', function(e) {
+                e.preventDefault();
+                openLightbox(index);
+            });
+        }
+        
+        // Also allow clicking the icon itself
+        if (icon) {
+            icon.style.cursor = 'pointer';
+            icon.addEventListener('click', function(e) {
+                e.preventDefault();
+                openLightbox(index);
+            });
+        }
+    });
 });
