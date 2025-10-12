@@ -179,75 +179,101 @@ html {
     z-index: -1;
 }
 
-/* Lightbox Modal Styles */
-.lightbox-modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
+/* Tools Section Styles */
+#image-portfolio {
+    background-color: #000; /* Black theme background */
+    color: #fff; /* White text for contrast */
+    padding: 60px 0; /* Vertical spacing */
+}
+
+#image-portfolio .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center; /* Center align content */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #fff; /* White for black theme */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ccc; /* Light gray for subtitle */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid: single column on small screens, expands as needed */
+    gap: 20px; /* Space between items */
+    justify-items: center; /* Center items in grid */
+    max-width: 800px; /* Limit overall width */
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay for black theme */
-    backdrop-filter: blur(5px); /* Subtle blur effect */
+    max-width: 600px; /* Cap the item width */
+    border-radius: 8px; /* Subtle rounded corners */
+    overflow: hidden; /* Hide overflow for overlay */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth in black theme */
+}
+
+.gallery-item img.tools {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 400px; /* Prevent image from being too tall */
+    object-fit: cover; /* Crop if needed to fit without distortion */
+    display: block;
+    transition: transform 0.3s ease; /* Smooth scale on hover */
+}
+
+.gallery-item:hover img.tools {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay on hover */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeIn 0.3s ease; /* Smooth fade-in */
 }
 
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    margin: auto;
-    text-align: center;
+.gallery-item:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
 }
 
-.lightbox-img {
-    max-width: 100%;
-    max-height: 80vh; /* Limit height to viewport */
-    object-fit: contain; /* Maintain aspect ratio without cropping */
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Deeper shadow for emphasis */
-}
-
-.close-lightbox {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Subtle glow in dark theme */
-    transition: color 0.3s ease;
-}
-
-.close-lightbox:hover {
-    color: #ccc; /* Lighten on hover */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Responsive for lightbox */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .lightbox-content {
-        max-width: 95%;
-    }
-    
-    .lightbox-img {
-        max-height: 70vh;
-    }
-    
-    .close-lightbox {
-        top: -30px;
+    .section-title {
         font-size: 2rem;
     }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 15px;
+    }
+    
+    .gallery-item {
+        max-width: 100%; /* Full width on small screens */
+    }
 }
-
 @keyframes gradientShift {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.8; }
@@ -623,6 +649,7 @@ html {
     transition: var(--transition);
 
 }
+
 
 
 
