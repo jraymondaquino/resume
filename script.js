@@ -247,4 +247,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Performance: Pause particles on scroll or when out of view (optional optimization)
     // Can be added if needed for better perf on low-end devices
+
+});
+
+// Tools Section Lightbox Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the gallery item and create lightbox elements dynamically
+    const galleryItem = document.querySelector('#image-portfolio .gallery-item');
+    const img = galleryItem.querySelector('img.tools');
+    const overlay = galleryItem.querySelector('.overlay');
+
+    if (galleryItem && img) {
+        // Create lightbox modal elements
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.className = 'lightbox-modal';
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <span class="close-lightbox">&times;</span>
+                <img src="${img.src}" alt="${img.alt}" class="lightbox-img">
+            </div>
+        `;
+
+        // Append lightbox to body
+        document.body.appendChild(lightbox);
+
+        // Event listeners
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        // Close lightbox
+        const closeBtn = lightbox.querySelector('.close-lightbox');
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox || e.target === closeBtn) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
+
+        // Optional: Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Enhance overlay for better UX (e.g., show a pointer cursor)
+        overlay.style.cursor = 'pointer';
+    }
 });
